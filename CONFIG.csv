@@ -1,0 +1,24 @@
+﻿COBOVOLTAICA v0.4 – BALCÓN;;
+Parámetro;Valor;
+Latitud (°);41,383;
+Longitud (°);2,177;
+Albedo;0,2;
+Potencia FV (kWp);0,8;
+PR global;0,85;
+Inclinación configurable (°);90;
+Orientación configurable (°);180;
+Comparación A;0° horizontal;
+Comparación B;90° vertical – Sur;
+Convención azimut;"0=Norte; 90=Este; 180=Sur; 270=Oeste";
+Modelo;Erbs + transposición isotrópica;
+Nota;"El CSV entregado contiene GHI horizontal; DNI/DHI se estiman para poder calcular POA.";
+Objetivo;Comparar un módulo de balcón horizontal (0°) frente a vertical (90°) y permitir cambiar inclinación/orientación.;
+;;
+PARÁMETROS v0.5 (corrección + comparador);;
+Desfase posición solar vs sello (h);-0,25;Calibrado: con -0,25 h no hay GHI>0 con sol bajo el horizonte ni GHI > extraterrestre. El v0.4 usaba -1 h.
+Altura solar mínima para DNI (°);5;"Por debajo, el cociente (GHI-DHI)/cosZ se dispara; se limita cosZ a sen(este valor)."
+cosZ mínimo;0,0872;"Fórmula; no editar."
+Tope DNI (fracción de I0 normal);0,75;Limita DNI a ~1.000-1.050 W/m² (máx. físico en nivel del mar).
+Inclinación fija A (° sur);16,7;Pendiente 30 % de cubierta = 16,7°.
+Inclinación fija B balcón (° sur);75;Solución de balcón fija.
+"Azul = entrada editable; negro = fórmula. Inclinación estacional: tabla azul en COMPARADOR!B16:B27.";;

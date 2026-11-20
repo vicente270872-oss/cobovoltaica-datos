@@ -1,0 +1,18 @@
+﻿Elemento;Descripción
+Fuente;PVGIS-SARAH3, Barcelona 41.383°N / 2.177°E, año 2005.
+GHI;Radiación global horizontal del fichero suministrado.
+DNI/DHI;Estimados mediante Erbs a partir de GHI y posición solar.
+POA;Modelo isotrópico: directa + difusa de cielo + reflejada por suelo.
+0°;Plano horizontal.
+90° Sur;Plano vertical orientado al Sur.
+Producción;POA × potencia FV × PR por hora.
+Advertencia;Para ingeniería final es preferible disponer de DNI/DHI medidos o suministrados directamente por PVGIS.
+Comparación añadida;"Inclinación variable mensual optimizada entre 0° y 90° en pasos de 1°, orientación sur; comparación fija 75° sur."
+Cálculo horario;POA = DNI·max(cos(incidencia),0) + DHI·(1+cos(tilt))/2 + GHI·albedo·(1-cos(tilt))/2.
+Producción;FV horario (kWh) = POA (W/m²) / 1000 × potencia FV (kWp) × PR.
+Advertencia;Se conservan los datos meteorológicos de 2005 y las estimaciones DNI/DHI del libro original. Revisar valores horarios anómalos, especialmente diciembre, antes de usar como previsión bancaria/comercial.
+Corrección v0.5;La posición solar del v0.4 estaba desfasada ~1 h respecto a la serie PVGIS (sello hh:10) y DNI=(GHI-DHI)/cosZ se disparaba al amanecer/atardecer (hasta >500.000 W/m² en diciembre).
+Desfase calibrado;-0,25 h sobre el sello: único rango sin GHI>0 con sol bajo el horizonte ni GHI superior al extraterrestre (barrido -1,0 a +0,5 h).
+DNI acotado;"cosZ mínimo = sen(5°) y DNI ≤ 0,75·I0n; DHI = GHI − DNI·cosZ para conservar GHI. Modelo Erbs + isotrópico sin cambios."
+cos(incidencia);Superficie al sur: cosθ = senδ·sen(φ−β) + cosδ·cos(φ−β)·cosω.
+Alcance;Todas las hojas (DATOS_8760 D:P y Q:AF, RESULTADOS, MENSUAL, DIARIO, BALCON, GRAFICOS, COMPARADOR) usan ya el modelo corregido y se calculan con fórmulas. Los valores v0.4 solo se conservan como referencia en la revisión de diciembre de COMPARADOR.
